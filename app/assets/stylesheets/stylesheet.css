@@ -77,16 +77,16 @@ dd.field-padding {margin-top: 10px;}
 #home-banner-wrapper #home-banner #home-banner-content h2.title {font-size: 32px; line-height: 38px; font-weight: normal; margin-bottom:20px; color: #000000;}
 #home-banner-wrapper #home-banner #home-banner-content p {font-size: 16px; line-height: 28px; margin-bottom: 25px; color: #000000;}
 #home-banner-wrapper #home-banner #home-banner-content ul li {float: left; display: block;}
-#home-banner-wrapper #home-banner #home-banner-content ul li a {display: block; list-style-type: none; background: url(btn-view-our-catalog.png) 0 0 no-repeat; width: 188px; height: 41px; text-indent: -9009px;}
+#home-banner-wrapper #home-banner #home-banner-content ul li a {display: block; list-style-type: none; background: url('/assets/btn-view-our-catalog.png') 0 0 no-repeat; width: 188px; height: 41px; text-indent: -9009px;}
 #home-banner-wrapper #home-banner #home-banner-content ul li a:hover {background-position: 0 -41px;}
 #home-banner-wrapper #home-banner #home-banner-image {float: left; padding: 35px 0 15px 0;}
 
-#sub-banner-wrapper {width: 100%; background-color: #ffffff; background-image: url(header-wrapper-bg-top.png), url(header-wrapper-bg-bottom.png), url(home-wrapper-bg.png); background-repeat: repeat-x, repeat-x, repeat-y; background-position:top left, bottom left, top center; border-top: 1px solid rgba(255,255,255,0.20); border-bottom: 1px solid rgba(255,255,255,0.20);}
+#sub-banner-wrapper {width: 100%; background-color: #ffffff; background-image: url('/assets/header-wrapper-bg-top.png'), url('/assets/header-wrapper-bg-bottom.png'), url('/assets/home-wrapper-bg.png'); background-repeat: repeat-x, repeat-x, repeat-y; background-position:top left, bottom left, top center; border-top: 1px solid rgba(255,255,255,0.20); border-bottom: 1px solid rgba(255,255,255,0.20);}
 #sub-banner-wrapper #sub-banner {margin: 0 auto; overflow: hidden; width:930px; padding:0 0 0 30px;}
 #sub-banner-wrapper #sub-banner #home-banner-content {float: left; width:960px; padding: 50px 0 50px 0; margin-right: 30px;}
 #sub-banner-wrapper #sub-banner h2 {font-size:36px; font-weight: normal; color: #fe472f; margin-bottom: 15px;}
 #sub-banner-wrapper #sub-banner ul.breadcrumb {; list-style-type: none;}
-#sub-banner-wrapper #sub-banner ul.breadcrumb li {float: left; padding: 0 20px 0 0; margin-right: 20px; background: url(breadcrumb-arrow.png) center right no-repeat;}
+#sub-banner-wrapper #sub-banner ul.breadcrumb li {float: left; padding: 0 20px 0 0; margin-right: 20px; background: url('/assets/breadcrumb-arrow.png') center right no-repeat;}
 #sub-banner-wrapper #sub-banner ul.breadcrumb li.current a {color: #979797; background-image: none;}
 #sub-banner-wrapper #sub-banner ul.breadcrumb li.no-arrow {color: #979797; background-image: none;}
 #sub-banner-wrapper #sub-banner ul.breadcrumb li a {color: #979797;}
