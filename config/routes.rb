@@ -5,6 +5,8 @@ RubyShop::Application.routes.draw do
   resources :homes
 
   root :to => "homes#index"
+
+  get "admin" => "admin#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
