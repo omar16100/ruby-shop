@@ -26,9 +26,11 @@
 			<!--begin toolbar-->
 			<div id="toolbar">
 				
-				<ul class="toolbar-checkout">
-					<li><a class="large button secondary" href="/checkout">Check Out</a></li>
-				</ul>
+				<%- if user_signed_in? %>
+					<ul class="toolbar-checkout">
+						<li><a class="large button secondary" href="/checkout">Check Out</a></li>
+					</ul>
+				<% end -%>
 				
 				<ul class="toolbar-cart">
 				    <%- if user_signed_in? %>
@@ -51,10 +53,10 @@
 			<!--begin main-navigation-->
 			<div id="main-navigation">
 				<ul>
-					<%- ['home', 'products', 'catalog', 'admin', 'about'].each do |menu| %>
+					<%- get_menu_options.each do |option| %>
 						<!-- class current when checked -->
 						<li>
-							<%= link_to "#{menu}", root_path %>
+							<%= link_to "#{option}", root_path %>
 						</li>
 					<% end %>
 				</ul>
