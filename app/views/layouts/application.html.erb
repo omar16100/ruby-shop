@@ -12,13 +12,19 @@
 
 	<div>
 		<%- if user_signed_in? %>
-			Hi, <%= current_user.email %> <%= link_to 'Sign out', new_user_session_path %>
+			Hi, <%= current_user.email %> <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
 		<% else %>
 			Hi guest, you can <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %>
 		<% end -%>
 	</div>
 
 	<hr/>
+
+	<p>
+		<%- flash.each do |message| %>
+		<%=  message %> <br/>
+		<% end %>
+	</p>
 
 <%= yield %>
 
