@@ -56,7 +56,11 @@
 					<%- get_menu_options.each do |option| %>
 						<!-- class current when checked -->
 						<li>
-							<%= link_to "#{option}", root_path %>
+							<%- unless option == 'Admin' %>
+								<%= link_to "#{option}", root_path %>
+							<% else %>
+								<%= link_to "#{option}", admin_path %>
+							<% end %>
 						</li>
 					<% end %>
 				</ul>
