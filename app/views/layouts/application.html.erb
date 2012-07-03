@@ -7,26 +7,123 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<!--begin header-wrapper-->
+	<div id="wrap">
+		<div id="header-wrapper">
 
-	<h1><%= link_to "Ruby shop", root_path %></h1>
+	  <!--begin header-->
+		<div id="header" class="clearfix">
+	    
+			<!--begin logo-->
+			<div id="logo">
+				<h1>
+					<%= image_tag "rails.png" %>
+					Ruby Shop
+				</h1>
+			</div>
+			<!--end logo-->
 
-	<div>
-		<%- if user_signed_in? %>
-			Hi, <%= current_user.email %> <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-		<% else %>
-			Hi guest, you can <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %>
-		<% end -%>
+			<!--begin toolbar-->
+			<div id="toolbar">
+				
+				<ul class="toolbar-checkout">
+					<li><a class="large button secondary" href="/checkout">Check Out</a></li>
+				</ul>
+				
+				<ul class="toolbar-cart">
+				    <%- if user_signed_in? %>
+				    	<li>Cart: <span class="toolbar-cart-count">
+							<a href="/cart">
+								0 items
+							</a></span>
+						</li>
+						<li>Hi, <%= current_user.email %> <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+						</li>
+					<% else %>
+						<li>Hi guest, you can <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %>
+						</li>
+					<% end -%>
+				</ul>
+				
+			</div>
+			<!--end toolbar-->
+
+			<!--begin main-navigation-->
+			<div id="main-navigation">
+				<ul>
+					<%- ['home', 'products', 'catalog', 'admin', 'about'].each do |menu| %>
+						<!-- class current when checked -->
+						<li>
+							<%= link_to "#{menu}", root_path %>
+						</li>
+					<% end %>
+				</ul>
+			</div>
+			<div style="clear: both"></div>
+			<!--end main-navigation-->
+
+	  </div>
+	  <!--end header-->
+
 	</div>
+	<!--end header-wrapper-->
 
-	<hr/>
+	<!--begin sub-banner-wrapper-->
+	<div id="sub-banner-wrapper">
 
-	<p>
-		<%- flash.each do |message| %>
-		<%=  message %> <br/>
-		<% end %>
-	</p>
+    	<div id="sub-banner">
 
-<%= yield %>
+			<div id="home-banner-content">
+				<h2 class="title">{title}</h2>
+				<!-- avoid <ul class="breadcrumb"> -->
+			</div>
+
+		</div>
+  </div>
+  <!--end sub-banner-wrapper-->
+
+	<!--begin content-wrapper-->
+	<div id="content-wrapper"> 
+
+		<div id="notice">
+			<%- flash.each do |message| %>
+			<%=  message %> <br/>
+			<% end %>
+		</div>
+
+		<div id="search">
+			<!-- avoid search form -->
+		</div>
+
+		<%= yield %>
+
+		</div>
+	</div>
+	<!--end content-wrapper-->
+
+</div>
+
+	<!--begin footer-->
+	<div id="footer">
+		
+		<div id="footer-content">
+			
+	        <div class="copyright clearfix">
+
+	          <p>
+	            <%= link_to "About us", root_path %>
+
+	            <span style="color:gray; padding:0 5px">|
+
+	            Copyright &copy; <%= Time.now.year %> Ruby Shop.
+
+	            <br/><br/>
+	            <%= image_tag "footer-payment-methods.png" %>
+	          </p>
+
+	      	</div>
+	  	</div>
+	</div>
 
 </body>
 </html>
