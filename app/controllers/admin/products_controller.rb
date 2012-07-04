@@ -1,8 +1,11 @@
 class Admin::ProductsController < ApplicationController
+  
+  layout "backend"
+
   # GET /admin/products
   # GET /admin/products.json
   def index
-    @admin_products = Admin::Product.all
+    @admin_products = Product.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +16,7 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products/1
   # GET /admin/products/1.json
   def show
-    @admin_product = Admin::Product.find(params[:id])
+    @admin_product = Product.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +27,7 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products/new
   # GET /admin/products/new.json
   def new
-    @admin_product = Admin::Product.new
+    @admin_product = Product.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +37,13 @@ class Admin::ProductsController < ApplicationController
 
   # GET /admin/products/1/edit
   def edit
-    @admin_product = Admin::Product.find(params[:id])
+    @admin_product = Product.find(params[:id])
   end
 
   # POST /admin/products
   # POST /admin/products.json
   def create
-    @admin_product = Admin::Product.new(params[:admin_product])
+    @admin_product = Product.new(params[:admin_product])
 
     respond_to do |format|
       if @admin_product.save
@@ -56,7 +59,7 @@ class Admin::ProductsController < ApplicationController
   # PUT /admin/products/1
   # PUT /admin/products/1.json
   def update
-    @admin_product = Admin::Product.find(params[:id])
+    @admin_product = Product.find(params[:id])
 
     respond_to do |format|
       if @admin_product.update_attributes(params[:admin_product])
@@ -72,7 +75,7 @@ class Admin::ProductsController < ApplicationController
   # DELETE /admin/products/1
   # DELETE /admin/products/1.json
   def destroy
-    @admin_product = Admin::Product.find(params[:id])
+    @admin_product = Product.find(params[:id])
     @admin_product.destroy
 
     respond_to do |format|
