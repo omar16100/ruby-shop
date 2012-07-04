@@ -12,7 +12,7 @@ RubyShop::Application.routes.draw do
 
   root :to => "products#index"
 
-  get "admin" => "admin/products#index"
+  get "admin" => "admin#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
