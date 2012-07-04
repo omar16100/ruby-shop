@@ -1,0 +1,26 @@
+
+<h3>Listing products</h3>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Qty</th>
+    <th>Price</th>
+    <th>On sale</th>
+    <th>Sale price</th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.qty %></td>
+    <td><%= product.price %></td>
+    <td><%= product.on_sale %></td>
+    <td><%= product.sale_price %></td>
+    <td><%= link_to 'Show', product %></td>
+  </tr>
+<% end %>
+</table>

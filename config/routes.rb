@@ -1,12 +1,18 @@
 RubyShop::Application.routes.draw do
   
+  namespace :admin do 
+    resources :products 
+    resources :categories
+  end
+
+  resources :products
+  resources :categories
+
   devise_for :users
 
-  resources :homes
+  root :to => "products#index"
 
-  root :to => "homes#index"
-
-  get "admin" => "admin#index"
+  get "admin" => "admin/products#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

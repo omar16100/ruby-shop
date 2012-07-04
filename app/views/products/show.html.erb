@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Product details</h3>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+
+<p>
+  <b>Qty:</b>
+  <%= @product.qty %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @product.price %>
+</p>
+
+<p>
+  <b>On sale:</b>
+  <%= @product.on_sale %>
+</p>
+
+<p>
+  <b>Sale price:</b>
+  <%= @product.sale_price %>
+</p>
+
+
+<%= link_to 'Back', products_path %>

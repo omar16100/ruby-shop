@@ -1,3 +1,5 @@
-class Admin < ActiveRecord::Base
-  # attr_accessible :title, :body
+module Admin
+  def self.table_name_prefix
+    'admin_'
+  end
 end
