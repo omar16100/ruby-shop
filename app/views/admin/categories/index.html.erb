@@ -10,13 +10,13 @@
     <th></th>
   </tr>
 
-<% @admin_categories.each do |admin_category| %>
+<% @admin_categories.each do |category| %>
   <tr>
-    <td><%= admin_category.name %></td>
-    <td><%= admin_category.color %></td>
-    <td><%= link_to 'Show', admin_category %></td>
-    <td><%= link_to 'Edit', edit_admin_category_path(admin_category) %></td>
-    <td><%= link_to 'Destroy', admin_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= category.name %></td>
+    <td><%= category.color %></td>
+    <td><%= link_to 'Show', admin_category_path(category) %></td>
+    <td><%= link_to 'Edit', edit_admin_category_path(category) %></td>
+    <td><%= link_to 'Destroy', admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

@@ -23,9 +23,9 @@
     <td><%= admin_product.price %></td>
     <td><%= admin_product.on_sale %></td>
     <td><%= admin_product.sale_price %></td>
-    <td><%= link_to 'Show', admin_product %></td>
+    <td><%= link_to 'Show', admin_product_path(admin_product) %></td>
     <td><%= link_to 'Edit', edit_admin_product_path(admin_product) %></td>
-    <td><%= link_to 'Destroy', admin_product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', admin_product_path(admin_product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
