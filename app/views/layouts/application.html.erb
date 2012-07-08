@@ -91,11 +91,14 @@
 	<!--begin content-wrapper-->
 	<div id="content-wrapper"> 
 
-		<div id="notice">
-			<%- flash.each do |message| %>
-			<%=  message %> <br/>
-			<% end %>
-		</div>
+		<%- if flash.any? %>
+			<div id="notice">
+				<%- flash.each do |type, message| %>
+					<%=  "#{type}: #{message}" %> <br/>
+				<% end %>
+				<hr/><br/>
+			</div>
+		<% end -%>
 
 		<div id="search">
 			<!-- avoid search form -->
