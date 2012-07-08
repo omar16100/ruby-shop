@@ -15,13 +15,13 @@ end
 User.create!(email: "user@rubyshop.co", password: "123456", admin: false)
 User.create!(email: "admin@rubyshop.co", password: "123456", admin: true)
 
-colors = ['Red', 'Blue', 'Yellow', 'Green', 'Gray']
+colors = ['Red', 'Blue', 'Yellow', 'Green', 'Gray', 'Orange', 'Cyan']
 
 ['Books', 'Movies', 'Clothes', 'Shoes', 'Computers'].each do |category_name|
   random_color = colors[Random.rand(5)]
   cat = Category.create!(name: category_name, color: random_color)
   
-  ['Product xxx', 'Product yyy', 'Product zzz'].each do |product_name|
-    Product.create!(name: product_name, price: 100, qty: 50, on_sale: false, category: cat, sale_price: 80, description: "this #{category_name} product contains a widely")
+  ['Product A', 'Product B', 'Product C', 'Product X', 'Product Y', 'Product Z'].each do |product_name|
+    Product.create!(name: product_name, price: 100, qty: 50, on_sale: false, category: cat, sale_price: 80, description: "this product belogns to #{category_name} category, and also contains")
   end
 end
