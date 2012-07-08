@@ -2,23 +2,21 @@ class ProductsController < ApplicationController
   before_filter :authenticate_user!, :only => [:show]
   
   # GET /products
-  # GET /products.json
   def index
-    @products = Product.all
+    @products = Product.where("qty > 0")
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @products }
     end
   end
 
   # GET /products/1
-  # GET /products/1.json
   def show
     @product = Product.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @product }
     end
   end

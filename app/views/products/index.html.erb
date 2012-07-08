@@ -1,27 +1,21 @@
-<h3>Listing products</h3>
 
-<br/>
+<div id="featured-products">
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Qty</th>
-    <th>Price</th>
-    <th>On sale</th>
-    <th>Sale price</th>
-    <th></th>
-  </tr>
+  <h3 class="featured-products-title">Products in stock</h3>
 
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.description %></td>
-    <td><%= product.qty %></td>
-    <td><%= product.price %></td>
-    <td><%= product.on_sale %></td>
-    <td><%= product.sale_price %></td>
-    <td><%= link_to 'Show', product %></td>
-  </tr>
-<% end %>
-</table>
+  <ul class="featured-product">
+    <% @products.each do |product| %>
+      <li>
+          <span class="product-image-wrapper">
+            <img class="product-image" src="/assets/rails.png" alt="<%= product.name %>" />
+          </span>
+          Name: <span class="product-name"><em><%= product.name %></em></span>
+          Desc: <span class="product-name"><em><%= truncate(product.description, length: 50, omission: "...") %></em></span>
+          Qty: <span class="product-name"><em><%= product.qty %></em></span>
+          <%= link_to "SEE MORE DETAILS", product_path(product), class: "small button details" %>
+          <br/>
+      </li>
+    <% end %>
+  </ul>
+
+</div>
