@@ -1,0 +1,14 @@
+<h3>Cart details</h3>
+
+<table>
+  <tr>
+    <td>Product name</td>
+    <td>Price</td>
+  </tr>
+  <tr>
+    <%- @user_cart.products.each do |product| %>
+      <td> <%= product.name %> </td>
+      <td> <%= product.name %> </td>
+    <% end-%>
+  </tr>
+</table>
