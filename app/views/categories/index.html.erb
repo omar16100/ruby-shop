@@ -1,20 +1,14 @@
-<h3>Listing categories</h3>
+<div id="featured-products">
 
-<br/>
+  <h3 class="featured-products-title">Categories</h3>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Color</th>
-    <th></th>
-  </tr>
+  <ul class="featured-product">
+    <% @categories.each do |category| %>
+      <li class="item-category" style="background-color:<%= category.color %>;">
+          <%= link_to "#{category.name}", products_path(category_id: category.id) %>
+      </li>
+    <% end %>
+  </ul>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %></td>
-    <td><%= category.color %></td>
-    <td><%= link_to 'Show', category %></td>
-  </tr>
-<% end %>
-</table>
+</div>
 
