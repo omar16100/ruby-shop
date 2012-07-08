@@ -3,7 +3,13 @@ class ProductsController < ApplicationController
   
   # GET /products
   def index
-    @products = Product.where("qty > 0")
+    @products = if params.has_key? "category_id"
+      Product.in_stock.by_category params[:category_id]
+    else
+      Product.in_stock
+    end
+
+    @category_name = @products.first.category.name
 
     respond_to do |format|
       format.html
