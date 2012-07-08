@@ -22,6 +22,6 @@ colors = ['Red', 'Blue', 'Yellow', 'Green', 'Gray']
   cat = Category.create!(name: category_name, color: random_color)
   
   ['Product xxx', 'Product yyy', 'Product zzz'].each do |product_name|
-    Product.create!(name: product_name, price: 100, qty: 50, on_sale: false, category: cat, sale_price: 80)
+    Product.create!(name: product_name, price: 100, qty: 50, on_sale: false, category: cat, sale_price: 80, description: "this #{category_name} product contains a widely")
   end
 end
