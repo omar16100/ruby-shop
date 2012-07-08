@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
+<h3>Product details for <%= @product.name %></h3>
 
-<h3>Product details</h3>
+<br/>
 
 <p>
   <b>Name:</b>
@@ -32,5 +32,7 @@
   <%= @product.sale_price %>
 </p>
 
-
-<%= link_to 'Back', products_path %>
+<ul class="toolbar-checkout">
+  <li style="float:left;"><%= link_to 'Add to Cart', root_path, class: "large button secondary" %></li>
+  <li ><%= link_to 'Back', products_path, class: "large button secondary" %></li>
+</ul>

@@ -28,16 +28,17 @@
 				
 				<%- if user_signed_in? %>
 					<ul class="toolbar-checkout">
-						<li><a class="large button secondary" href="/checkout">Check Out</a></li>
+						<li>
+							<%= link_to "Check Out", cart_index_path(user_id: current_user.id), class: "large button secondary" %>
+						</li>
 					</ul>
 				<% end -%>
 				
 				<ul class="toolbar-cart">
 				    <%- if user_signed_in? %>
 				    	<li>Cart: <span class="toolbar-cart-count">
-							<a href="/cart">
-								0 items
-							</a></span>
+				    		<%= link_to "#{cart_items_count} items", cart_index_path(user_id: current_user.id) %>
+							</span>
 						</li>
 						<li>Hi, <%= current_user.email %> <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
 						</li>
@@ -80,7 +81,7 @@
     	<div id="sub-banner">
 
 			<div id="home-banner-content">
-				<h2 class="title">{title}</h2>
+				<h2 class="title">Ruby Shop</h2>
 				<!-- avoid <ul class="breadcrumb"> -->
 			</div>
 
@@ -94,7 +95,7 @@
 		<%- if flash.any? %>
 			<div id="notice">
 				<%- flash.each do |type, message| %>
-					<%=  "#{type}: #{message}" %> <br/>
+					<%=  message %>
 				<% end %>
 				<hr/><br/>
 			</div>

@@ -13,6 +13,8 @@ RubyShop::Application.routes.draw do
   root :to => "products#index"
   get "admin" => "admin#index"
   
+  resources :cart
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
