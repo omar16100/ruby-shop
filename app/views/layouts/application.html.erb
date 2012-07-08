@@ -17,8 +17,8 @@
 			<!--begin logo-->
 			<div id="logo">
 				<h1>
-					<%= image_tag "rails.png" %>
-					Ruby Shop
+					<%= image_tag "ruby.png" %>
+					<%= link_to "Ruby Shop", root_path %>
 				</h1>
 			</div>
 			<!--end logo-->
@@ -59,7 +59,7 @@
 								<%= link_to "#{option}", products_path if option == 'Products' %>
 								<%= link_to "#{option}", categories_path if option == 'Categories' %>
 								<%= link_to "#{option}", admin_path if option == 'Admin' %>
-								<%= link_to "#{option}", edit_user_password_path if option == 'Profile' %>
+								<%= link_to "#{option}", edit_user_registration_path if option == 'Profile' %>
 								<%= link_to "#{option}", root_path if option == 'About' %>
 						</li>
 					<% end %>
