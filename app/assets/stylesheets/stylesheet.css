@@ -109,9 +109,13 @@ dd.field-padding {margin-top: 10px;}
 #featured-products ul.product-tag li.product-tag-title {font-size: 13px; color: #FFFFFF; padding-top: 7px;}
 #featured-products ul.product-tag li.product-tag-item {background: #131820; padding: 7px 12px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; margin-bottom: 10px}
 
+/* ================ */
+/* = mine
+/* ================ */
+
 /* fixes for multicolumn and mouseover */
 #featured-products ul.featured-product { overflow:hidden; }
-#featured-products ul.featured-product li { float: left; margin: 10px; }
+#featured-products ul.featured-product li { float: left; margin: 20px; }
 #featured-products ul li:hover {background: rgba(5,5,5,0.2); cursor: pointer;}
 
 /* fixes for categories colored list */

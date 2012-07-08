@@ -3,6 +3,8 @@
 
   <h3 class="featured-products-title"><%= @category_name %> Products in stock</h3>
 
+  <%= paginate @products %><br/>
+  
   <ul class="featured-product">
     <% @products.each do |product| %>
       <li>

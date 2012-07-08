@@ -4,12 +4,12 @@ class ProductsController < ApplicationController
   # GET /products
   def index
     @products = if params.has_key? "category_id"
-      Product.in_stock.by_category params[:category_id]
+      Product.by_category(params[:category_id]).in_stock.page(params[:page]).per(8)
     else
-      Product.in_stock
+      Product.in_stock.page(params[:page]).per 8
     end
 
-    @category_name = @products.first.category.name
+    @category_name = @products.first.category.name if @products.any?
 
     respond_to do |format|
       format.html
