@@ -96,15 +96,15 @@ dd.field-padding {margin-top: 10px;}
 #content-wrapper #catalog-description p {font-size: 14px; line-height: 22px;}
 
 #featured-products h3.featured-products-title {font-size: 18px; font-weight: normal; color: #bdbdbd; margin: 0 0 30px 30px;}
-#featured-products ul.featured-product {float: left; list-style-type: none; border: 1px dotted rgba(255,255,255,0.2); padding: 28px 31px 10px 31px;}
+#featured-products ul.featured-product {float: left; list-style-type: none; border: 1px dotted rgba(255,255,255,0.2); padding: 10px; }
 #featured-products ul.featured-product a {display: block;}
 #featured-products ul li a {text-decoration: none;}
 #featured-products ul li img.product-image {display: block; border: 5px solid #ffffff;}
-#featured-products ul li .product-image-wrapper {height: 180px; overflow: hidden; display: block; padding: 0; margin: 0; background-color: #f5f5f5; margin-bottom: 20px;}
-#featured-products ul li .product-name {display: block; width: 175px; font-size: 13px; color: #bdbdbd; line-height: 20px; }
+#featured-products ul li .product-image-wrapper {height: 180px; overflow: hidden; display: block; padding: 0; margin: 0; background-color: #f5f5f5; margin-bottom: 10px;}
+#featured-products ul li .product-name {display: block !important; width: 175px; font-size: 13px; color: #bdbdbd; line-height: 20px; }
 #featured-products ul li .featured-price {color: #fe472f; line-height: 20px;}
-#featured-products ul li img.btn-details {display: block; margin-top: 15px;}
-#featured-products ul.product-tag {list-style-type: none; margin-left: 30px; padding-bottom: 45px;}
+#featured-products ul li img.btn-details {display: block; margin-top: 10px;}
+#featured-products ul.product-tag {list-style-type: none; margin-left: 10px; padding-bottom: 20px;}
 #featured-products ul.product-tag li {float: left; display: inline; margin-right: 10px;}
 #featured-products ul.product-tag li.product-tag-title {font-size: 13px; color: #FFFFFF; padding-top: 7px;}
 #featured-products ul.product-tag li.product-tag-item {background: #131820; padding: 7px 12px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; margin-bottom: 10px}
@@ -189,7 +189,7 @@ dd.field-padding {margin-top: 10px;}
 #left-column .blog-post .blog-details ul li.continue a {color: #fe472f;}
 #left-column a.comments {color: #696969; margin-left: 15px;}
 
-#right-column {float: left; width: 212px; margin: 15px 0 0 30px; padding-right: 30px;}
+#right-column {float: left; width: 100px; margin: 15px 0 0 30px; padding-right: 30px;}
 #right-column h2.right-column-heading {color: #ffffff; font-weight: normal; font-size: 18px; margin-bottom: 30px;}
 #right-column ul {list-style-type: none; margin-bottom: 15px; background: url(dotted-divider.gif) bottom left repeat-x; padding-bottom: 15px;}
 #right-column ul li {font-size: 14px; line-height: 20px; color: #bdbdbd;}

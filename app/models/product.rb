@@ -6,4 +6,5 @@ class Product < ActiveRecord::Base
   validates :price, :sale_price, :qty, :numericality => true
 
   scope :in_stock, where("qty > 0")
+  scope :by_category, lambda { |id| where(category_id: id) }
 end
