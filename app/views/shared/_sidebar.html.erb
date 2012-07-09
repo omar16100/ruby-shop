@@ -1,0 +1,9 @@
+<h2 class="right-column-heading">Categories</h2>
+
+<br/>
+
+<%- @categories.each do |category| %>
+  <ul>
+    <%= category_link(category) %>
+  </ul>
+<% end-%>
