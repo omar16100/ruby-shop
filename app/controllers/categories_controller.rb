@@ -2,23 +2,21 @@ class CategoriesController < ApplicationController
   before_filter :authenticate_user!, :only => [:show]
   
   # GET /categories
-  # GET /categories.json
   def index
     @categories = Category.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @categories }
     end
   end
 
   # GET /categories/1
-  # GET /categories/1.json
   def show
-    @category = Category.find(params[:id])
+    @products = Category.find(params[:id]).products.page(params[:page]).per(8)
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @category }
     end
   end

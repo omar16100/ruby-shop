@@ -1,16 +1,11 @@
-<p id="notice"><%= notice %></p>
 
-<h3>Category details</h3>
+<div id="featured-products">
 
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
+  <h3 class="featured-products-title">Products in category</h3>
 
-<p>
-  <b>Color:</b>
-  <%= @category.color %>
-</p>
+  <%= render 'products/products' %>
+
+</div>
 
 
 <%= link_to 'Back', categories_path %>

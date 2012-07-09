@@ -3,11 +3,7 @@ class ProductsController < ApplicationController
   
   # GET /products
   def index
-    @products = if params.has_key? "category_id"
-      Product.by_category(params[:category_id]).in_stock.page(params[:page]).per(8)
-    else
-      Product.in_stock.page(params[:page]).per(8)
-    end
+    @products = Product.in_stock.page(params[:page]).per(8)
 
     respond_to do |format|
       format.html
