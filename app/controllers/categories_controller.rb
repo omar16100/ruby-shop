@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
-    @products = Category.find(params[:id]).products.page(params[:page]).per(8)
+    @products = Category.find(params[:id]).products.in_stock.page(params[:page]).per(8)
 
     respond_to do |format|
       format.html
