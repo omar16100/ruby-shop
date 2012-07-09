@@ -105,8 +105,14 @@
 			<!-- avoid search form -->
 		</div>
 
-		<%= yield %>
+		<div id="left-column">
+			<%= render "shared/sidebar" %>
+	  </div>
 
+	  <div id="right-column">
+    <%= yield %>
+	  </div>
+		
 		</div>
 	</div>
 	<!--end content-wrapper-->

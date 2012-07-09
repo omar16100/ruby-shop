@@ -3,21 +3,6 @@
 
   <h3 class="featured-products-title">Products in stock</h3>
 
-  <div id="left-column">
-    <%= render 'products' %>
-  </div>
-
-  <div id="right-column">
-    
-    <h2 class="right-column-heading">Categories</h2>
-    <%- @categories.each do |category| %>
-    <ul>
-      <li style="background-color:<%= category.color %>;">
-        <%= link_to "#{category.name}", products_path(category_id: category.id) %>
-      </li>
-    </ul>
-    <% end-%>
-    
-  </div>
+  <%= render "shared/products" %>
 
 </div>

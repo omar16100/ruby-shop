@@ -1,14 +1,26 @@
-<h3>Cart details</h3>
+<h3 class="featured-products-title">Cart details</h3>
 
-<table>
-  <tr>
+<br/>
+
+<table id="cart-table">
+  <thead>
     <td>Product name</td>
+    <td>Description</td>
     <td>Price</td>
-  </tr>
-  <tr>
-    <%- @user_cart.products.each do |product| %>
+    <td>Action</td>
+  </thead>
+  <%- @user_cart.products.each do |product| %>
+    <tr>
       <td> <%= product.name %> </td>
-      <td> <%= product.name %> </td>
-    <% end-%>
-  </tr>
+      <td> <%= product.description %> </td>
+      <td> <%= product.price %> </td>
+      <td> <%= link_to "Remove", root_path %> </td>
+    </tr>
+  <% end-%>
+  <tfoot>
+    <td>&nbsp;</td>
+    <td>Total</td>
+    <td> <%= @user_cart.total_price %> </td>
+    <td>&nbsp;</td>
+  </tfoot>
 </table>
