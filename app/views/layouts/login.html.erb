@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RubyShop</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <!--begin header-wrapper-->
+  <div id="wrap">
+    <div id="header-wrapper">
+
+    <!--begin header-->
+    <div id="header" class="clearfix">
+      
+      <!--begin logo-->
+      <div id="logo">
+        <h1>
+          <%= image_tag "ruby.png" %>
+          <%= link_to "Ruby Shop", root_path %>
+        </h1>
+      </div>
+      <!--end logo-->
+
+      <!--begin toolbar-->
+      <div id="toolbar">
+        
+        <%- if user_signed_in? %>
+          <ul class="toolbar-checkout">
+            <li>
+              <%= link_to "Check Out", cart_index_path(user_id: current_user.id), class: "large button secondary" %>
+            </li>
+          </ul>
+        <% end -%>
+        
+        <ul class="toolbar-cart">
+            <%- if user_signed_in? %>
+              <li>Cart: <span class="toolbar-cart-count">
+                <%= link_to "#{cart_items_count} items", cart_index_path(user_id: current_user.id) %>
+              </span>
+            </li>
+            <li>Hi, <%= current_user.email %> <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
+            </li>
+          <% else %>
+            <li>Hi guest, you can <%= link_to 'Sign in', new_user_session_path %> or <%= link_to 'Sign up', new_user_registration_path %>
+            </li>
+          <% end -%>
+        </ul>
+        
+      </div>
+      <!--end toolbar-->
+
+      <!--begin main-navigation-->
+      <div id="main-navigation">
+        <ul>
+          <%- get_menu_options.each do |option| %>
+            <!-- class current when checked -->
+            <li>
+                <%= link_to "#{option}", products_path if option == 'Products' %>
+                <%= link_to "#{option}", categories_path if option == 'Categories' %>
+                <%= link_to "#{option}", admin_path if option == 'Admin' %>
+                <%= link_to "#{option}", edit_user_registration_path if option == 'Profile' %>
+                <%= link_to "#{option}", root_path if option == 'About' %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div style="clear: both"></div>
+      <!--end main-navigation-->
+
+    </div>
+    <!--end header-->
+
+  </div>
+  <!--end header-wrapper-->
+
+  <!--begin sub-banner-wrapper-->
+  <div id="sub-banner-wrapper">
+
+      <div id="sub-banner">
+
+      <div id="home-banner-content">
+        <h2 class="title">Ruby Shop</h2>
+        <!-- avoid <ul class="breadcrumb"> -->
+      </div>
+
+    </div>
+  </div>
+  <!--end sub-banner-wrapper-->
+
+  <!--begin content-wrapper-->
+  <div id="content-wrapper"> 
+
+    <%- if flash.any? %>
+      <div id="notice">
+        <%- flash.each do |type, message| %>
+          <%=  message %>
+        <% end %>
+        <hr/><br/>
+      </div>
+    <% end -%>
+
+      <%= yield %>
+    
+    </div>
+  </div>
+  <!--end content-wrapper-->
+
+</div>
+
+  <!--begin footer-->
+  <div id="footer">
+    
+    <div id="footer-content">
+      
+          <div class="copyright clearfix">
+
+            <p>
+              <%= link_to "About us", root_path %>
+
+              <span style="color:gray; padding:0 5px">|
+
+              Copyright &copy; <%= Time.now.year %> Ruby Shop.
+
+              <br/><br/>
+              <%= image_tag "footer-payment-methods.png" %>
+            </p>
+
+          </div>
+      </div>
+  </div>
+
+</body>
+</html>
