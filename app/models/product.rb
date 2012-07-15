@@ -7,4 +7,8 @@ class Product < ActiveRecord::Base
 
   scope :in_stock, where("qty > 0")
   scope :by_category, lambda { |id| where(category_id: id) }
+
+  def current_price
+    on_sale ? sale_price : price
+  end
 end
