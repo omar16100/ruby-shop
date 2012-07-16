@@ -58,7 +58,7 @@ class Admin::UsersController < ApplicationController
 
     respond_to do |format|
       if @admin_user.update_attributes(params[:admin_user])
-        format.html { redirect_to @admin_user, notice: 'User was successfully updated.' }
+        format.html { redirect_to admin_user_path(@admin_user), notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -73,7 +73,7 @@ class Admin::UsersController < ApplicationController
     @admin_user.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_users_url }
+      format.html { redirect_to admin_users_path }
       format.json { head :no_content }
     end
   end
