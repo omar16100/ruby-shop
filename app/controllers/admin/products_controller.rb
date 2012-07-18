@@ -39,7 +39,7 @@ class Admin::ProductsController < ApplicationController
 
   # POST /admin/products
   def create
-    @admin_product = Product.new(params[:admin_product])
+    @admin_product = Product.new(params[:product])
 
     respond_to do |format|
       if @admin_product.save
@@ -57,7 +57,7 @@ class Admin::ProductsController < ApplicationController
     @admin_product = Product.find(params[:id])
 
     respond_to do |format|
-      if @admin_product.update_attributes(params[:admin_product])
+      if @admin_product.update_attributes(params[:product])
         format.html { redirect_to admin_product_path(@admin_product), notice: 'Product was successfully updated.' }
         format.json { head :no_content }
       else
