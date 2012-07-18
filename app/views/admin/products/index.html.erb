@@ -1,6 +1,6 @@
 <h3>Listing Products</h3>
 
-<br/>
+<%= paginate @admin_products %>
 
 <table class="table table-striped">
  <thead>
@@ -24,9 +24,9 @@
         <td><%= admin_product.on_sale %></td>
         <td><%= admin_product.sale_price %></td>
         <td>
-          <%= link_to 'Show', admin_product_path(admin_product), class: "btn btn-info" %>
-          <%= link_to 'Edit', edit_admin_product_path(admin_product), class: "btn btn-primary" %>
-          <%= link_to 'Destroy', admin_product_path(admin_product), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Show', admin_product_path(admin_product), class: "btn-small btn-info" %>
+          <%= link_to 'Edit', edit_admin_product_path(admin_product), class: "btn-small btn-primary" %>
+          <%= link_to 'Destroy', admin_product_path(admin_product), class: "btn-small btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
