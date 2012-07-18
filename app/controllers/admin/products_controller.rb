@@ -3,34 +3,31 @@ class Admin::ProductsController < ApplicationController
   layout "backend"
 
   # GET /admin/products
-  # GET /admin/products.json
   def index
-    @admin_products = Product.all
+    @admin_products = Product.page params[:page]
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @admin_products }
     end
   end
 
   # GET /admin/products/1
-  # GET /admin/products/1.json
   def show
     @admin_product = Product.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @admin_product }
     end
   end
 
   # GET /admin/products/new
-  # GET /admin/products/new.json
   def new
     @admin_product = Product.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @admin_product }
     end
   end
@@ -41,13 +38,12 @@ class Admin::ProductsController < ApplicationController
   end
 
   # POST /admin/products
-  # POST /admin/products.json
   def create
     @admin_product = Product.new(params[:admin_product])
 
     respond_to do |format|
       if @admin_product.save
-        format.html { redirect_to @admin_product, notice: 'Product was successfully created.' }
+        format.html { redirect_to admin_product_path(@admin_product), notice: 'Product was successfully created.' }
         format.json { render json: @admin_product, status: :created, location: @admin_product }
       else
         format.html { render action: "new" }
@@ -57,13 +53,12 @@ class Admin::ProductsController < ApplicationController
   end
 
   # PUT /admin/products/1
-  # PUT /admin/products/1.json
   def update
     @admin_product = Product.find(params[:id])
 
     respond_to do |format|
       if @admin_product.update_attributes(params[:admin_product])
-        format.html { redirect_to @admin_product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to admin_product_path(@admin_product), notice: 'Product was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -73,7 +68,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   # DELETE /admin/products/1
-  # DELETE /admin/products/1.json
   def destroy
     @admin_product = Product.find(params[:id])
     @admin_product.destroy
