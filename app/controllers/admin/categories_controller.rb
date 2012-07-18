@@ -43,11 +43,11 @@ class Admin::CategoriesController < ApplicationController
   # POST /admin/categories
   # POST /admin/categories.json
   def create
-    @admin_category = Category.new(params[:admin_category])
+    @admin_category = Category.new(params[:category])
 
     respond_to do |format|
       if @admin_category.save
-        format.html { redirect_to @admin_category, notice: 'Category was successfully created.' }
+        format.html { redirect_to admin_category_path(@admin_category), notice: 'Category was successfully created.' }
         format.json { render json: @admin_category, status: :created, location: @admin_category }
       else
         format.html { render action: "new" }
@@ -62,8 +62,8 @@ class Admin::CategoriesController < ApplicationController
     @admin_category = Category.find(params[:id])
 
     respond_to do |format|
-      if @admin_category.update_attributes(params[:admin_category])
-        format.html { redirect_to @admin_category, notice: 'Category was successfully updated.' }
+      if @admin_category.update_attributes(params[:category])
+        format.html { redirect_to admin_category_path(@admin_category), notice: 'Category was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

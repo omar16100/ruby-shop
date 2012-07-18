@@ -15,9 +15,9 @@
         <td><%= category.name %></td>
         <td><%= category.color %></td>
         <td>
-          <%= link_to 'Show', admin_category_path(category), class: "btn btn-info" %>
-          <%= link_to 'Edit', edit_admin_category_path(category), class: "btn btn-primary" %>
-          <%= link_to 'Destroy', admin_category_path(category), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Show', admin_category_path(category), class: "btn-small btn-info" %>
+          <%= link_to 'Edit', edit_admin_category_path(category), class: "btn-small btn-primary" %>
+          <%= link_to 'Destroy', admin_category_path(category), class: "btn-small btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>
