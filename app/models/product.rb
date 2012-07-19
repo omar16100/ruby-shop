@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
 
   validates :name, :price, :qty, :presence => true
   validates :price, :sale_price, :qty, :numericality => true
+  validates :category, :presence => true
 
   scope :in_stock, where("qty > 0")
   scope :by_category, lambda { |id| where(category_id: id) }
