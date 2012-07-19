@@ -1,0 +1,15 @@
+<ul class="featured-product">
+  <% @products.each do |product| %>
+    <li>
+        <span class="product-image-wrapper">
+          <img class="product-image" src="/assets/rails.png" alt="<%= product.name %>" />
+        </span>
+        Name: <span class="product-name"><em><%= product.name %></em></span>
+        Desc: <span class="product-name"><em><%= truncate(product.description, length: 50, omission: "...") %></em></span>
+        Price: <span class="product-name"><em><%= number_to_currency product.current_price %></em></span>
+        <%= link_to "SEE MORE DETAILS", product_path(product), class: "small button details" %>
+        <br/>
+    </li>
+  <% end %>
+</ul>
+<center> <%= paginate @products %><br/> </center>
