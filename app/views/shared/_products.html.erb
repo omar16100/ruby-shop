@@ -8,7 +8,7 @@
         </span>
         Name: <span class="product-name"><em><%= product.name %></em></span>
         Desc: <span class="product-name"><em><%= truncate(product.description, length: 50, omission: "...") %></em></span>
-        Qty: <span class="product-name"><em><%= product.qty %></em></span>
+        Price: <span class="product-name"><em><%= product.current_price %></em></span>
         <%= link_to "SEE MORE DETAILS", product_path(product), class: "small button details" %>
         <br/>
     </li>

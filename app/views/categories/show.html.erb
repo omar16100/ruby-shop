@@ -1,10 +1,7 @@
 
 <div id="featured-products">
-
-  <h3 class="featured-products-title">Products in category</h3>
-
-  <%= render 'shared/products' %>
-
+  <h3 class="featured-products-title">Products in category <strong><%= @category.name%></strong></h3>
+  <%= render 'products/products_table' %>
 </div>
 
 

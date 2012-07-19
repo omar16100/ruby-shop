@@ -18,21 +18,16 @@
 </p>
 
 <p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
-
-<p>
   <b>On sale:</b>
   <%= @product.on_sale %>
 </p>
 
 <p>
-  <b>Sale price:</b>
-  <%= @product.sale_price %>
+  <b>Price:</b>
+  <%= number_to_currency @product.current_price %>
 </p>
 
 <ul class="toolbar-checkout">
-  <li style="float:left;"><%= link_to 'Add to Cart', root_path, class: "large button secondary" %></li>
+  <li style="float:left;"><%= link_to 'Add to Cart', edit_cart_path(@product), class: "large button secondary" %></li>
   <li ><%= link_to 'Back', products_path, class: "large button secondary" %></li>
 </ul>
