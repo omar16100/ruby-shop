@@ -67,5 +67,9 @@ module RubyShop
 
     # observers
     config.active_record.observers = :user_observer
+
+    config.generators do|g|
+      g.fixture_replacement :factory_girl, dir: "spec/factories"
+    end
   end
 end
