@@ -8,7 +8,7 @@ module ApplicationHelper
 		end
 
 		menu_options << 'Profile'
-		menu_options << 'About'
+		menu_options << 'Github'
 	end
 
   def cart_items_count

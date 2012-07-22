@@ -61,7 +61,9 @@
 								<%= link_to "#{option}", categories_path if option == 'Categories' %>
 								<%= link_to "#{option}", admin_path if option == 'Admin' %>
 								<%= link_to "#{option}", edit_user_registration_path if option == 'Profile' %>
-								<%= link_to "#{option}", root_path if option == 'About' %>
+								<%- if option == 'Github' %>
+									<a href="http://github.com/orendon/ruby-shop"><%= option %></a>
+								<% end -%>
 						</li>
 					<% end %>
 				</ul>
