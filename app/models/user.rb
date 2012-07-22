@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :admin, :photo
   # attr_accessible :title, :body
 
-  has_attached_file :photo
+  has_attached_file :photo, styles: { thumb: "150x150>" }
 
   validates_attachment :photo,
     content_type: { content_type: /^image\/.?(gif|png|jpg|jpeg)$/i },
