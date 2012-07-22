@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   def index
     @categories = Category.all
-    @products = Product.in_stock.page(params[:page]).per(8)
+    @products = Product.in_stock.page(params[:page]).per(9)
 
     respond_to do |format|
       format.html
