@@ -3,7 +3,7 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :multipart => true }) do |f| %>
   <%= devise_error_messages! %>
 
-  <%= image_tag @user.photo.url %>
+  <%= image_tag @user.photo.url(:thumb) %>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
