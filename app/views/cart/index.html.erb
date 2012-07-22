@@ -1,26 +1,26 @@
-<h3 class="featured-products-title">Cart details for <%= current_user.email %></h3>
-
-<br/>
-
-<table id="cart-table">
-  <thead>
-    <td>Product name</td>
-    <td>Description</td>
-    <td>Price</td>
-    <td>Action</td>
-  </thead>
-  <%- @user_cart.products.each do |product| %>
-    <tr>
-      <td> <%= product.name %> </td>
-      <td> <%= product.description %> </td>
-      <td> <%= product.current_price %> </td>
-      <td> <%= link_to "Remove", cart_path(product), method: :delete %> </td>
-    </tr>
-  <% end-%>
-  <tfoot>
-    <td>&nbsp;</td>
-    <td>Total</td>
-    <td> <%= @user_cart.total_price %> </td>
-    <td>&nbsp;</td>
-  </tfoot>
-</table>
+<div id="cart">
+  <h3 class="title">Cart details for <strong><%= current_user.email %></strong></h3>
+  <br/>
+  <table>
+    <thead>
+      <td>Product name</td>
+      <td>Description</td>
+      <td>Price</td>
+      <td>Action</td>
+    </thead>
+    <%- @user_cart.products.each do |product| %>
+      <tr>
+        <td> <%= product.name %> </td>
+        <td> <%= product.description %> </td>
+        <td> <%= product.current_price %> </td>
+        <td> <%= link_to "Remove", cart_path(product), method: :delete %> </td>
+      </tr>
+    <% end-%>
+    <tfoot>
+      <td>&nbsp;</td>
+      <td>Total</td>
+      <td> <%= @user_cart.total_price %> </td>
+      <td>&nbsp;</td>
+    </tfoot>
+  </table>
+</div>
