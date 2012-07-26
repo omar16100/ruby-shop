@@ -24,12 +24,12 @@
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
+            <span class="icon-bar">xxx</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
 
-          <%= link_to "Ruby Shop", root_path, class: "brand" %>
+          <%= link_to "Admin Backend", admin_path, class: "brand" %>
 
           <div class="container-fluid nav-collapse">
             <ul class="nav">
@@ -45,9 +45,13 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Menu</li>
+              <li><%= link_to "Home", admin_path %></li>
+              <li class="divider"></li>
               <li><%= link_to "Admin Products", admin_products_path %></li>
               <li><%= link_to "Admin Categories", admin_categories_path %></li>
               <li><%= link_to "Admin Users", admin_users_path %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Back to Ruby Shop", root_path %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
