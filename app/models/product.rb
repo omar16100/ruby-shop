@@ -1,4 +1,8 @@
 class Product < ActiveRecord::Base
+  extend FriendlyId
+
+  friendly_id :name, use: :slugged
+
   attr_accessible :description, :name, :on_sale, :price, :qty, :sale_price, :category, :category_id
   belongs_to :category
 
