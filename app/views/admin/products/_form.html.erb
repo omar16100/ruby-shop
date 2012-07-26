@@ -1,4 +1,4 @@
-<%= simple_form_for [:admin, @admin_product], :html => {:class => 'form-horizontal' } do |f| %>
+<%= simple_form_for [:admin, @admin_product], :html => {:class => 'form-vertical' } do |f| %>
   <% if @admin_product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@admin_product.errors.count, "error") %> prohibited this admin_product from being saved:</h2>
@@ -12,10 +12,15 @@
   <% end %>
 
   <%= f.input :name %>
+
+  <%= f.label :category %>
+  <%= f.select :category_id, options_for_select(@categories, @admin_product.category_id) %>
+
   <%= f.input :description %>
   <%= f.input :qty %>
   <%= f.input :price %>
   <%= f.input :on_sale %>
   <%= f.input :sale_price %>
+  
   <%= f.button :submit %>
 <% end %>

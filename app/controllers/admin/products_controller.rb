@@ -25,6 +25,7 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products/new
   def new
     @admin_product = Product.new
+    @categories = get_category_list
 
     respond_to do |format|
       format.html
@@ -35,6 +36,7 @@ class Admin::ProductsController < ApplicationController
   # GET /admin/products/1/edit
   def edit
     @admin_product = Product.find(params[:id])
+    @categories = get_category_list
   end
 
   # POST /admin/products
@@ -77,4 +79,9 @@ class Admin::ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+    def get_category_list
+      Category.all.collect { |cat| [cat.name, cat.id] }
+    end
 end
