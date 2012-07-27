@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120726200216) do
+ActiveRecord::Schema.define(:version => 20120727022139) do
 
   create_table "admins", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -78,6 +78,10 @@ ActiveRecord::Schema.define(:version => 20120726200216) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "birthday"
+    t.string   "country"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

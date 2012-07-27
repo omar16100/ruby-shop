@@ -9,13 +9,18 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :admin, :photo
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
+    :admin, :photo, :first_name, :last_name, :birthday, :country
   # attr_accessible :title, :body
 
-  has_attached_file :photo, styles: { thumb: "150x150>" }
+  has_attached_file :photo, styles: { thumb: "150x150>", mini: "50x50" }
 
   validates_attachment :photo,
     content_type: { content_type: /^image\/.?(gif|png|jpg|jpeg)$/i },
     size: { in: 0..500.kilobytes }
+
+  def full_name
+    self.first_name << " " << self.last_name
+  end
 
 end

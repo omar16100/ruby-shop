@@ -5,28 +5,37 @@
   <%= devise_error_messages! %>
 
   <div id="fields">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+    <%= f.label :email %><br /><%= f.email_field :email %>
+
+    <br /><br />
+    <%= f.label :first_name %><br /><%= f.text_field :first_name %>
+    <br />
+    <%= f.label :last_name %><br /><%= f.text_field :last_name %>
+    <br />
+    <%= f.label :country %><br /><%= f.text_field :country %>
+    <br />
+    <%= f.label :birthday %><br /><%= date_select :user, :birthday %>
+    
     <br /><br />
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, :autocomplete => "off" %>
     <br />
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.label :password_confirmation %><br /><%= f.password_field :password_confirmation %>
+    
     <br /><br />
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password %>
+    
     <br /><br />
-    <%= f.label :photo %> <br/>
-    <%= f.file_field :photo %>
+    <%= f.label :photo %>&nbsp;&nbsp;<%= f.file_field :photo %>
 
-    <br/><br/>
-    <%= f.submit "Update profile", class: "small button secondary" %>
+    <br/><br/><%= f.submit "Update profile", class: "small button secondary" %>
     <br/><br/>
     <%= link_to "Back", :back %>
   </div>
 
   <div id="photo">
+    <h2><%= @user.full_name %></h2><br/>
     <%= image_tag @user.photo.url(:thumb) %>
   </div>
 
