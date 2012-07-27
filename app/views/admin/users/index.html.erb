@@ -3,6 +3,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Photo</th>
+      <th>Name</th>
       <th>Email</th>
       <th>Actions</th>
     </tr>
@@ -10,11 +12,13 @@
   <tbody>
     <% @admin_users.each do |admin_user| %>
       <tr>
+        <td><%= image_tag admin_user.photo.url(:mini) %></td>
+        <td><%= admin_user.full_name %></td>
         <td><%= admin_user.email %></td>
         <td>
-          <%= link_to 'Show', admin_user_path(admin_user), class: "btn-small btn-info" %>
-          <%= link_to 'Edit', edit_admin_user_path(admin_user), class: "btn-small btn-primary" %>
-          <%= link_to 'Destroy', admin_user_path(admin_user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn-small btn-danger" %>
+          <%= link_to 'Show', admin_user_path(admin_user), class: "btn btn-info" %>
+          <%= link_to 'Edit', edit_admin_user_path(admin_user), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', admin_user_path(admin_user), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
         </td>
       </tr>
     <% end %>

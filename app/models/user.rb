@@ -13,14 +13,14 @@ class User < ActiveRecord::Base
     :admin, :photo, :first_name, :last_name, :birthday, :country
   # attr_accessible :title, :body
 
-  has_attached_file :photo, styles: { thumb: "150x150>", mini: "50x50" }
+  has_attached_file :photo, styles: { thumb: "150x150>", mini: "40x40>" }
 
   validates_attachment :photo,
     content_type: { content_type: /^image\/.?(gif|png|jpg|jpeg)$/i },
     size: { in: 0..500.kilobytes }
 
   def full_name
-    self.first_name << " " << self.last_name
+    self.first_name.to_s + " " + self.last_name.to_s
   end
 
 end
