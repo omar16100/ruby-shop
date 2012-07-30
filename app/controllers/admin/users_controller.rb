@@ -40,7 +40,7 @@ class Admin::UsersController < ApplicationController
   # POST /admin/users
   def create
     @admin_user = User.new(params[:user])
-    debugger
+
     respond_to do |format|
       if @admin_user.save
         format.html { redirect_to admin_user_path(@admin_user), notice: 'User was successfully created.' }
