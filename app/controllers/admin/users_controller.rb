@@ -39,11 +39,11 @@ class Admin::UsersController < ApplicationController
 
   # POST /admin/users
   def create
-    @admin_user = User.new(params[:admin_user])
-
+    @admin_user = User.new(params[:user])
+    debugger
     respond_to do |format|
       if @admin_user.save
-        format.html { redirect_to @admin_user, notice: 'User was successfully created.' }
+        format.html { redirect_to admin_user_path(@admin_user), notice: 'User was successfully created.' }
         format.json { render json: @admin_user, status: :created, location: @admin_user }
       else
         format.html { render action: "new" }
@@ -54,10 +54,11 @@ class Admin::UsersController < ApplicationController
 
   # PUT /admin/users/1
   def update
+    updated_user = params[:user]
     @admin_user = User.find(params[:id])
 
     respond_to do |format|
-      if @admin_user.update_attributes(params[:admin_user])
+      if @admin_user.update_attributes(params[:user])
         format.html { redirect_to admin_user_path(@admin_user), notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
