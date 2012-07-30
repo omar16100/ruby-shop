@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  <br/>
+  <%= image_tag @admin_product.photo.url(:thumb) if @admin_product.id.present? %><br/><br/>
+  
+  <%= f.label "Product image" %>
+  <%= f.file_field :photo %>
+
   <%= f.input :name %>
 
   <%= f.label :category %>

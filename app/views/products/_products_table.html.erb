@@ -2,7 +2,7 @@
   <% @products.each do |product| %>
     <li>
         <span class="product-image-wrapper">
-          <img class="product-image" src="/assets/rails.png" alt="<%= product.name %>" />
+          <%= image_tag product.photo.url(:thumb) %>
         </span>
         Name: <span class="product-name"><em><%= product.name %></em></span>
         Desc: <span class="product-name"><em><%= truncate(product.description, length: 50, omission: "...") %></em></span>

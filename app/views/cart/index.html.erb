@@ -3,6 +3,7 @@
   <br/>
   <table>
     <thead>
+      <td></td>
       <td>Product name</td>
       <td>Description</td>
       <td>Price</td>
@@ -10,6 +11,7 @@
     </thead>
     <%- @user_cart.products.each do |product| %>
       <tr>
+        <td> <%= image_tag product.photo.url(:mini) %> </td>
         <td> <%= product.name %> </td>
         <td> <%= product.description %> </td>
         <td> <%= product.current_price %> </td>
