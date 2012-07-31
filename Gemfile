@@ -12,6 +12,7 @@ group :development, :test do
   gem "rspec-rails", "~> 2.10.1" 
   gem "factory_girl_rails", "~> 3.2.0"
   gem "guard-rspec", "~> 0.7.0"
+  gem 'sunspot_solr'
 end
 
 group :test do
@@ -49,6 +50,8 @@ gem 'kaminari'                  # pagination
 gem "paperclip", "~> 3.0"       # files
 gem 'simple_form'
 gem "friendly_id", "~> 4.0.1"
+
+gem 'sunspot_rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

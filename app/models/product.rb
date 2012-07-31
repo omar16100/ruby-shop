@@ -20,6 +20,10 @@ class Product < ActiveRecord::Base
     content_type: { content_type: /^image\/.?(gif|png|jpg|jpeg)$/i },
     size: { in: 0..2000.kilobytes }
 
+    searchable do
+      text :name
+    end
+
   def current_price
     on_sale ? sale_price : price
   end

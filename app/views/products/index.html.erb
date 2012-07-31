@@ -3,6 +3,16 @@
 
   <h3 class="featured-products-title">Products in stock</h3>
 
+  <div id="search">
+    <%= form_tag({controller: "products", action: "search"}, method: "post") do %>
+      <%= label_tag "Product name keywords" %>
+      <%= text_field_tag :name, "" %>
+      <%= submit_tag "Search" %>
+    <% end %>
+  </div>
+
+  <br/>
+
   <%= render "products/products_table" %>
 
 </div>

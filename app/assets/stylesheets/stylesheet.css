@@ -134,8 +134,8 @@ dd.field-padding {margin-top: 10px;}
 .categories .category a { color: #cdcdcd; }
 #notice { color: gold; font-weight: bold; font-size: 1.2em; }
 
-#search {float: right;}
-#search form .search-field {background: url("search-bg.png") top left no-repeat; border: 0 none; color: #b7b6b6; margin: -7px -18px 0 0; outline: medium none; padding: 9px 40px 8px 20px!important; position: relative; vertical-align: middle; width: 181px; height: 21px; z-index: 2; font-size: 13px;}
+#search { font-weight: bold; }
+#search form .search-field {background: url("/assets/search-bg.png") top left no-repeat; border: 0 none; color: #b7b6b6; margin: -7px -18px 0 0; outline: medium none; padding: 9px 40px 8px 20px!important; position: relative; vertical-align: middle; width: 181px; height: 21px; z-index: 2; font-size: 13px;}
 #search form .search-button {border: 0 none; position: relative; right: 15px; top: -2px; vertical-align: middle; z-index: 999;}
 
 #pagination {clear: both; padding: 40px 30px 0 30px;}
