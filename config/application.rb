@@ -66,7 +66,7 @@ module RubyShop
     config.assets.version = '1.0'
 
     # observers
-    config.active_record.observers = :user_observer
+    config.active_record.observers = :user_observer, :product_observer
 
     config.generators do|g|
       g.fixture_replacement :factory_girl, dir: "spec/factories"

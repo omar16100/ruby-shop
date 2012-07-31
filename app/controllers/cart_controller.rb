@@ -16,7 +16,10 @@ class CartController < ApplicationController
   def edit
     @user_cart = get_current_user_cart
 
-    @user_cart.products << Product.find(params[:id])
+    added_product = Product.find(params[:id])
+    @user_cart.products << added_product
+
+    UserMailer.product_added_to_cart(@user_cart.user, product.name).deliver
     
     #@message = @user_cart.save ? "Product was added to the cart." : "Error ocurred while adding product"
     redirect_to cart_index_path, notice: 'Product was added to the cart.'
