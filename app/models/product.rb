@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
     :category, :category_id, :photo
   belongs_to :category
 
-  has_attached_file :photo, styles: { mini: "80x80>", thumb: "175x175>", normal: "400x400>" }
+  has_attached_file :photo, styles: { mini: "80x80>", thumb: "170x170>", normal: "400x400>" }
 
   scope :in_stock, where("qty > 0")
   scope :by_category, lambda { |id| where(category_id: id) }

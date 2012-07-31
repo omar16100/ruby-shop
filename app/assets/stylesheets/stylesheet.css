@@ -214,7 +214,7 @@ a.rss-icon img {margin: 0 10px -2px 0;}
 #cart table {width: 100%;}
 #cart th {color: #ffffff; font-size: 14px; font-weight: normal; text-align: center; padding: 15px 15px; border-top: 1px solid #696969; border-bottom: 1px solid #696969}
 #cart th.start {text-align: left; padding-left: 0;}
-#cart td {font-size: 13px; text-align: center; vertical-align: middle; padding: 15px; border-bottom: 1px solid #696969;}
+#cart td {font-size: 13px; text-align: center; vertical-align: middle; padding: 10px; border-bottom: 1px solid #696969;}
 #cart td.pic {width: 50px; padding-right: 5px; padding-left: 0;}
 #cart td.pic img {float: left;}
 #cart td.title {text-align: left; color: #bdbdbd; font-weight: normal;}
