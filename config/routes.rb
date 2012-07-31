@@ -4,7 +4,7 @@ RubyShop::Application.routes.draw do
   resources :cart, :products, :categories
   post "products_search" => "products#search"
 
-  post "admin" => "admin#index"
+  get "admin" => "admin#index"
 
   namespace :admin do 
     resources :products, :categories, :users
