@@ -1,6 +1,6 @@
 FactoryGirl.define do 
   factory :product do
-    sequence(:name) {|i| "Product #{i}"} 
+    sequence(:name) { |i| "Product #{i}" }
     description "Some description" 
     qty 5
     on_sale false
