@@ -29,7 +29,7 @@ class ProductsController < ApplicationController
 
     @categories = get_all_categories
     @products = search.results
-    flash[:notice] = "No product name matched the keywords." unless @products.any?
+    flash[:notice] = "No product name matched '#{params[:name]}' keywords" unless @products.any?
 
     render :index
   end
