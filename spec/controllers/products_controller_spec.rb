@@ -41,25 +41,6 @@ describe ProductsController do
       sign_in @user
     end
 
-    describe "GET index" do
-      it "should render the index view" do
-        get :index
-        response.should render_template :index
-      end
-      it "should retrieve a list of @products" do
-        product = create(:product)
-
-        get :index
-        assigns(:products).should == [product]
-      end
-      it "should retrieve a list of @categories" do
-        category = create(:category)
-        
-        get :index
-        assigns(:categories).should be_eql [category]
-      end
-    end
-
     describe "GET show" do
       before :each do
         @product = create(:product)
