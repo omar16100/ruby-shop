@@ -12,10 +12,10 @@ class CartController < ApplicationController
   end
 
   # add one product
-  def edit
+  def append_item
     @user_cart = get_current_user_cart
 
-    added_product = Product.find(params[:id])
+    added_product = Product.find(params[:product])
     @user_cart.products << added_product
 
     UserMailer.product_added_to_cart(@user_cart.user, added_product).deliver
@@ -24,10 +24,10 @@ class CartController < ApplicationController
   end
 
   # remove one product
-  def update
+  def remove_item
       @user_cart = get_current_user_cart
       
-      product = Product.find params[:id]
+      product = Product.find params[:product]
       @user_cart.products.delete product
       #products = CartItem.where(cart_id: @user_cart.id, product_id: params[:id])
       #products.first.delete
@@ -36,8 +36,8 @@ class CartController < ApplicationController
   end
 
   # remove all products
-  def destroy
-      @user_cart = Cart.find params[:id]
+  def remove_all
+      @user_cart = Cart.find params[:cart_id]
       
       @user_cart.products.delete_all
 

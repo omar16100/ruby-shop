@@ -25,7 +25,7 @@ describe CartController do
       end
     end
 
-    # == edit ==
+    # == append_item ==
     describe "adding items to cart" do
       before :each do
         @product = create(:product)
@@ -33,7 +33,7 @@ describe CartController do
 
       it "should add the new product to my cart" do
         expect {
-          get :edit, id: @product
+          post :append_item, cart_id: @cart, product: @product
         }.to change(CartItem, :count).by(1)
 
         assigns(:user_cart).products.any?.should be_true
@@ -47,11 +47,11 @@ describe CartController do
         UserMailer.should_receive(:product_added_to_cart)
         mailer.should_receive(:deliver)
 
-        get :edit, id: @product
+        post :append_item, cart_id: @cart, product: @product
       end
     end
 
-    # == update, destroy ==
+    # == remove_item, remove_all ==
     describe "removing products from cart" do
       before :each do
         @product = create(:product)
@@ -61,7 +61,7 @@ describe CartController do
       it "should allow to remove all products in my cart" do
         @cart.products.any?.should be_true
 
-        delete :destroy, id: @cart
+        post :remove_all, cart_id: @cart
 
         assigns(:user_cart).products.any?.should be_false
       end
@@ -70,7 +70,7 @@ describe CartController do
         @cart.products.count.should be > 0
         initial_count = @cart.products.count
 
-        put :update, id: @product
+        post :remove_item, cart_id: @cart, product: @product
 
         assigns(:user_cart).products.count.should be < initial_count
         response.should redirect_to cart_index_path

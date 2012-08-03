@@ -32,6 +32,6 @@
 </p>
 
 <ul class="toolbar-checkout">
-  <li style="float:left;"><%= link_to 'Add to Cart', edit_cart_path(@product), class: "large button secondary" %></li>
+  <li style="float:left;"><%= link_to 'Add to Cart', cart_append_item_path(current_user.cart, product:@product), method: :post, class: "large button secondary" %></li>
   <li ><%= link_to 'Back', products_path, class: "large button secondary" %></li>
 </ul>

@@ -1,7 +1,10 @@
 RubyShop::Application.routes.draw do
 
   root :to => "products#index"
-  resources :products, :categories, :cart
+  resources :products, :categories
+  resources :cart, :only => :index do
+    post :append_item, :remove_item, :remove_all
+  end
   
   post "products_search" => "products#search"
 

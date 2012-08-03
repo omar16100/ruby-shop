@@ -15,7 +15,7 @@
         <td> <%= product.name %> </td>
         <td> <%= product.description %> </td>
         <td> <%= product.current_price %> </td>
-        <td> <%= link_to "Remove", cart_path(product.id), method: :put %> </td>
+        <td> <%= link_to "Remove", cart_remove_item_path(@user_cart, product: product), method: :post %> </td>
       </tr>
     <% end-%>
     <tfoot>
@@ -23,7 +23,7 @@
       <td>&nbsp;</td>
       <td>Total</td>
       <td> <%= @user_cart.total_price %> </td>
-      <td><%= link_to "Remove All", cart_path(@user_cart), method: :delete %></td>
+      <td><%= link_to "Remove All", cart_remove_all_path(@user_cart), method: :post %></td>
     </tfoot>
   </table>
 </div>
