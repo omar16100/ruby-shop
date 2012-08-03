@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
     content_type: { content_type: /^image\/.?(gif|png|jpg|jpeg)$/i },
     size: { in: 0..500.kilobytes }
 
+  validates :email, :presence => true
+
   def full_name
     [self.first_name, self.last_name].join(' ')
   end
