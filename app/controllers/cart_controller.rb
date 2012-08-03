@@ -6,8 +6,7 @@ class CartController < ApplicationController
   def index
     @user_cart = get_current_user_cart
 
-    unless @user_cart
-      @user_cart ||= Cart.new
+    unless @user_cart.products.any?
       flash[:notice] = "You dont have any products in your cart."
     end
   end
@@ -19,7 +18,7 @@ class CartController < ApplicationController
     added_product = Product.find(params[:id])
     @user_cart.products << added_product
 
-    UserMailer.product_added_to_cart(@user_cart.user, product.name).deliver
+    UserMailer.product_added_to_cart(@user_cart.user, added_product).deliver
     
     #@message = @user_cart.save ? "Product was added to the cart." : "Error ocurred while adding product"
     redirect_to cart_index_path, notice: 'Product was added to the cart.'
