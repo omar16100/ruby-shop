@@ -3,11 +3,11 @@ require 'spec_helper'
 
 describe Cart do
   it "should have a valid factory" do
-    create(:cart).should be_valid
+    create(:cart_with_products).should be_valid
   end
 
   it "should calculate the total price" do
-    cart = build(:cart)
+    cart = build(:cart_with_products)
     cart.products.first.price = 20
     
     cart.products << build(:product, price: 12)

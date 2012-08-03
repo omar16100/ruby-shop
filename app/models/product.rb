@@ -27,4 +27,5 @@ class Product < ActiveRecord::Base
   def current_price
     on_sale ? sale_price : price
   end
+
 end
