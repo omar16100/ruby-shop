@@ -24,4 +24,17 @@ describe Category do
       @cat.should be_valid
     end
   end
+
+  context "friendly url" do
+    it "should generate a friendly url for each category" do
+      category = create(:category, name: "toys and games")
+      category.to_param.should == "toys-and-games"
+    end
+
+    it "should add a counter for categories with same name" do
+      cat1 = create(:category, name: "shoes")
+      cat2 = create(:category, name: "shoes")
+      cat2.to_param.should == cat1.to_param.concat("--2")
+    end
+  end
 end

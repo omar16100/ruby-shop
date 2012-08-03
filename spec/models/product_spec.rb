@@ -81,4 +81,18 @@ describe Product do
     product.on_sale = true
     product.current_price.should == 55
   end
+
+  context "friendly url" do
+    it "should generate a friendly url for each product" do
+      product = create(:product, name: "nike tennis")
+      product.to_param.should == "nike-tennis"
+    end
+
+    it "should add a counter for categories with same name" do
+      10.times { create(:product, name: "tennis") }
+      new_prod = create(:product, name: "tennis")
+
+      new_prod.to_param.should be_eql "tennis--11"
+    end  
+  end
 end
