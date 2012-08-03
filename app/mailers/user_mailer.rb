@@ -4,12 +4,12 @@ class UserMailer < ActionMailer::Base
   def product_added_to_cart(user, product)
     @user = user
     @product = product
-    mail(:to => user.email, :subject => "Product added to your cart.")
+    mail(:to => user.email, :subject => "#{product.name} was added to your cart.")
   end
 
   def price_changed(user, product)
     @user = user
     @product = product
-    mail(:to => user.email, :subject => "Product price has changed.")
+    mail(:to => user.email, :subject => "The price of #{product.name} has changed.")
   end
 end
