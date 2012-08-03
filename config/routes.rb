@@ -1,11 +1,14 @@
 RubyShop::Application.routes.draw do
 
   root :to => "products#index"
-  resources :cart, :products, :categories
+  resources :products, :categories
+  resources :cart do
+    get "empty" => "cart#empty"
+  end
+  
   post "products_search" => "products#search"
 
   get "admin" => "admin#index"
-
   namespace :admin do 
     resources :products, :categories, :users
   end
