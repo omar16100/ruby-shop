@@ -1,5 +1,21 @@
+# spec/models/product_observer_spec.rb
+
 require 'spec_helper'
 
 describe ProductObserver do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should send mail when product price changed" do
+    cart = create(:cart)
+    mailer = mock(UserMailer)
+
+    product = create(:product)
+    cart.products << product
+
+    UserMailer.stub(:price_changed).with(cart.user, product).and_return(mailer)
+    UserMailer.should_receive(:price_changed)
+    mailer.should_receive(:deliver)
+
+    product.price += 100
+    product.save
+  end
+
 end
