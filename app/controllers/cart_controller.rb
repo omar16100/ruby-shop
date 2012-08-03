@@ -1,6 +1,6 @@
 class CartController < ApplicationController
   
-  # authorize_resource
+  authorize_resource
 
   # GET /cart
   def index
@@ -11,7 +11,7 @@ class CartController < ApplicationController
     end
   end
 
-  # edit cart, adding products
+  # add one product
   def edit
     @user_cart = get_current_user_cart
 
@@ -23,18 +23,21 @@ class CartController < ApplicationController
     redirect_to cart_index_path, notice: 'Product was added to the cart.'
   end
 
-  def destroy
+  # remove one product
+  def update
       @user_cart = get_current_user_cart
       
       product = Product.find params[:id]
-      products = CartItem.where(cart_id: @user_cart.id, product_id: product.id)
-      products.first.delete
+      @user_cart.products.delete product
+      #products = CartItem.where(cart_id: @user_cart.id, product_id: params[:id])
+      #products.first.delete
 
       redirect_to cart_index_path, notice: 'Product was removed.'
   end
 
-  def empty
-      @user_cart = Cart.find params[:cart_id]
+  # remove all products
+  def destroy
+      @user_cart = Cart.find params[:id]
       
       @user_cart.products.delete_all
 

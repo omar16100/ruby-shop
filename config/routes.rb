@@ -1,10 +1,7 @@
 RubyShop::Application.routes.draw do
 
   root :to => "products#index"
-  resources :products, :categories
-  resources :cart do
-    get "empty" => "cart#empty"
-  end
+  resources :products, :categories, :cart
   
   post "products_search" => "products#search"
 

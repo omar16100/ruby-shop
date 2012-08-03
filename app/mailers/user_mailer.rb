@@ -10,6 +10,6 @@ class UserMailer < ActionMailer::Base
   def price_changed(user, product)
     @user = user
     @product = product
-    mail(:to => user.name, :subject => "Product price has changed.")
+    mail(:to => user.email, :subject => "Product price has changed.")
   end
 end
