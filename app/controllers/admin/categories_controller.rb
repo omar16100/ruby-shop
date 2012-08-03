@@ -1,5 +1,6 @@
 class Admin::CategoriesController < ApplicationController
   
+  authorize_resource  
   layout "backend"
 
   # GET /admin/categories

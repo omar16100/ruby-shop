@@ -1,5 +1,6 @@
 class Admin::ProductsController < ApplicationController
   
+  authorize_resource  
   layout "backend"
 
   # GET /admin/products

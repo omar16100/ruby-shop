@@ -6,7 +6,7 @@ class Ability
     if user.admin?
       can :manage, :all
     else
-      can :read, Home #[Home, Catalog]
+      can :manage, Cart
     end
   end
 
