@@ -34,7 +34,9 @@ describe CartController do
       it "should add the new product to my cart" do
         expect {
           get :edit, id: @product
-          }.to change(CartItem, :count).by(1)
+        }.to change(CartItem, :count).by(1)
+
+        assigns(:user_cart).products.any?.should be_true
         response.should redirect_to cart_index_path
       end
 
@@ -49,10 +51,30 @@ describe CartController do
       end
     end
 
-    # == destroy ==
-    describe "remove items from my cart" do
-      it "should allow to remove one product from my cart"
-      it "should allow to clean products in my cart"
+    # == update, destroy ==
+    describe "removing products from cart" do
+      before :each do
+        @product = create(:product)
+        @cart.products << @product
+      end
+
+      it "should allow to remove all products in my cart" do
+        @cart.products.any?.should be_true
+
+        delete :destroy, id: @cart
+
+        assigns(:user_cart).products.any?.should be_false
+      end
+
+      it "should allow to remove one product from my cart" do
+        @cart.products.count.should be > 0
+        initial_count = @cart.products.count
+
+        put :update, id: @product
+
+        assigns(:user_cart).products.count.should be < initial_count
+        response.should redirect_to cart_index_path
+      end
     end
 
   end

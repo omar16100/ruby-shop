@@ -9,6 +9,7 @@ describe ProductObserver do
 
     product = create(:product)
     cart.products << product
+    cart.products.count.should be > 0
 
     UserMailer.stub(:price_changed).with(cart.user, product).and_return(mailer)
     UserMailer.should_receive(:price_changed)
