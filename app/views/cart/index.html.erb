@@ -23,7 +23,7 @@
       <td>&nbsp;</td>
       <td>Total</td>
       <td> <%= @user_cart.total_price %> </td>
-      <td>&nbsp;</td>
+      <td><%= link_to "Remove All", cart_empty_path(@user_cart) %></td>
     </tfoot>
   </table>
 </div>

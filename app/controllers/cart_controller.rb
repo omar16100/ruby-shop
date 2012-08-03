@@ -20,14 +20,25 @@ class CartController < ApplicationController
 
     UserMailer.product_added_to_cart(@user_cart.user, added_product).deliver
     
-    #@message = @user_cart.save ? "Product was added to the cart." : "Error ocurred while adding product"
     redirect_to cart_index_path, notice: 'Product was added to the cart.'
   end
 
   def destroy
       @user_cart = get_current_user_cart
+      
+      product = Product.find params[:id]
+      products = CartItem.where(cart_id: @user_cart.id, product_id: product.id)
+      products.first.delete
 
       redirect_to cart_index_path, notice: 'Product was removed.'
+  end
+
+  def empty
+      @user_cart = Cart.find params[:cart_id]
+      
+      @user_cart.products.delete_all
+
+      redirect_to cart_index_path, notice: 'All products were removed.'
   end
 
   private
